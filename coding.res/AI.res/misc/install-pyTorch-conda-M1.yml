@@ -1,0 +1,38 @@
+# run this code in terminal to create the env
+# $ conda env create -n env_name -f install-pyTorch-conda-M1.yml
+# $ conda env create -n torch_env -f install-pyTorch-conda-M1.yml
+
+
+# I did have an error this error when using opening images:  Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?`
+# to resolve that error run : $ pip install torch torchvision --upgrade
+
+
+name: torch
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+    - python=3.11
+    - pip>=25.0.1
+    - pytorch 
+    - torchvision 
+    - jupyter
+    - scikit-learn
+    - scipy
+    - pandas
+    - pandas-datareader
+    - matplotlib
+    - pillow
+    - tqdm
+    - requests
+    - h5py
+    - pyyaml
+    - flask
+    - boto3
+    - ipykernel
+    - pip:
+        - bayesian-optimization
+        - gym
+        - kaggle
+
+        # 
