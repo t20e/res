@@ -161,6 +161,7 @@ cython_debug/
 
 
 graphic.res
+py_torch_misc
 data
 /coding.res/coding/c++.res/.vscode
 

@@ -1,7 +1,7 @@
 /*
 ----- C++ Resouce
 
-C++ is a lower level langauge; its below python but above machine languages like asm
+C++ is a lower level language; its below python but above machine languages like ASM
 
 We need to translate our human code to machine code we do this with a compiler, Clang is one.
 
