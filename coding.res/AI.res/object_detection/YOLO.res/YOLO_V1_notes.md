@@ -62,7 +62,10 @@ Split Grid Image: <img src="./ref_imgs/split_grid_iamge.png" alt="Description" w
         2. Prediction Shape: very similar to the Target shape, except we will have 1 more probability score and 4 additional <span class="boundingBox-text">bounding boxes</span> predictions. 25 + 1 + 4 = 30
 
 
-6. Understand The Model Architecture And Implement in PyTorch
+6. **Understand The Model Architecture And Implement in PyTorch**
+
+    [⭐ Better note on Archietcure](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_taco/README.md#yolo-v1-architecture)
+
 
     <img    src="./ref_imgs/YoloV1Architecture.png" alt="Description" width="700">
 
@@ -98,75 +101,9 @@ Split Grid Image: <img src="./ref_imgs/split_grid_iamge.png" alt="Description" w
 
 
 
-7. Loss Function
+7. **Loss Function**
 
-    <img src="./ref_imgs/loss_function.png" alt="Description" width="400">
-
-
-     <img src="./ref_imgs/lossFunction1.png" alt="Description" width="250"> 
-
-    1. ↑ The x<sub>i</sub> is the box coordinate for the <span class="midPoint-text">mid-point</span>
-        1. ( taking the mid-point value x<sub>i</sub> - and subtracting it with the predicted $\hat{x}$<sub>i</sub> ) 
-        2. then square it ()<sup>2</sup>
-        3. plus (y<sub>i</sub> - predicted $\hat{y}$<sub>i</sub>)<sup>2</sup>
-        4. $\frac{obj}{i  j}$ is an identity function, it makes sure that we only run that function if theres an object in the <span class="cell-text">cell</span> and also if the <span class="boundingBox-text">bounding box</span> j is responsible for outputing  that <span class="boundingBox-text">bounding box</span>.
-        5. The result of the identity function is either 1 or 0. It's going to be 1 if theres a box in cell i and then i=o is going to become equal to s<sup>2</sup>
-        6. Then we need a requirment that <span class="boundingBox-text">bounding box</span> j is responsible for oupting that <span class="boundingBox-text">bounding box</span> this is where j=0
-        7. Now we need to know which cell is responsible for outputing that <span class="boundingBox-text">bounding box</span> 
-        8. Then multiply with λ<sub>coord</sub> | (lamba = λ which is a constant) 
-
-    <img src="./ref_imgs/lossfunction2.png" alt="Description" width="250"> 
-
-    2. ↑ This function is similar to the one above but now we are working with <span class="boundingBox-text">bounding box</span> 
-        1. here we take the square root to make sure we prioritize smaller <span class="boundingBox-text">bounding boxes</span> just as much as we do for large <span class="boundingBox-text">bounding boxes</span> 
-        2. we also have the lambda and the identity function here as well.
-
-
-
-
-    <img src="./ref_imgs/lossfunction3.png" alt="Description" width="250"> 
-
-    3. ↑ This function is if there is an object in the cell. C in this function stands for the probability that theres a <span class="boundingBox-text">bounding box</span>  in the <span class="cell-text">cell</span>.
-        1. We have two <span class="boundingBox-text">bounding box</span> for the predicted
-        2. Here were only going to take the <span class="boundingBox-text">bounding box</span> with the highest IOU.
-
-    <img src="./ref_imgs/lossfunction4.png" alt="Description" width="250"> 
-
-    4. ↑ This function is if there is NO object in the cell. noobj = no object
-
-
-    <img src="./ref_imgs/lossfunction5.png" alt="Description" width="250"> 
-    
-    5. ↑ This function is for the classes.
-        1. it runs the identity function => it goes through each cell and looks to see if theres an object there in <span class="cell-text">cell</span> i
-        2. then we go thru each class all of the 20 classes
-        3. we take the sum squared error, the YOLO V1 paper uses a regression based loss for everything
-    6. Implement the loss function is loss.py
-
-
-
-
-8. Dataset
-    1. In the label files of the dataset, one example:
-            <div style="white-space: nowrap;">
-            "11 0.34419263456090654 0.611 0.4164305949008499 0.262"
-            </div>
-            <div style="white-space: nowrap;">
-            "14 0.509915014164306 0.51 0.9745042492917847 0.972"
-            </div> 
-        1. you can resize the image with no problems because the bounding boxes are percentages and will resize correctly.
-        2. the 11 and 14 above are the classes
-        3.  0.3441.... is the <span class='midPoint-text'>mid-point</span>
-        4. 0.611 0.416.... 0.262 are the coordinates of the bounding box
-        5. this image would have two bounding boxes of two classes 11 and 14.
-
-
-    2. in the train.csv files example: 000005.jpg,000005.txt
-        1. just tells us which images go with what labels
-
-
-
-
+    Check out [./loss_fn.ipynb](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO.res/loss_fn.ipynb)
 
 
 
