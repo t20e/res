@@ -63,8 +63,8 @@ Split Grid Image: <img src="./ref_imgs/split_grid_iamge.png" alt="Description" w
 
 
 6. **Understand The Model Architecture And Implement in PyTorch**
-
-    [⭐ Better note on Archietcure](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_taco/README.md#yolo-v1-architecture)
+    <!-- TODO: add link to yolo v1 orig project as better archietcure -->
+    <!-- [⭐ Better note on Archietcure](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_taco/README.md#yolo-v1-architecture) -->
 
 
     <img    src="./ref_imgs/YoloV1Architecture.png" alt="Description" width="700">
