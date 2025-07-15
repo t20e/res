@@ -3,11 +3,14 @@
 
 There are two types of bounding box (bbox) coordinate formats: **mid-point** and **corner-points**.
 
-### Vocab
+### Vocab:
 
-**Absolute pixel values:** Direct pixel measurements. Fixed to image resolution; *Doesn't resize well.*
+**Absolute pixel values:** The coordinate values of bounding boxes are in pixel measurements. Fixed to image resolution; *Doesn't resize well.*
 
-**Percentage values (normalized):** Proportional measurements (0-1 range). *Scales automatically with image resizing.*
+**Percentage values (Normalized):** The coordinate values of bounding boxes are in percentages (0-1 scale) of the image dimensions. *Scales automatically with image resizing.*
+
+Both mid-points and corner-points can have values of either absolute values or percentage values. *Certain scenarios* require them to be in one or the other. But for the most part -> Deep Learning Models (Input/Output): Normalized values are overwhelmingly preferred for both mid-point and corner-point formats. In cases like plotting bounding boxes its easier to use absolute values.
+
 
 ### Mid-point format: `(x, y, w, h)`  
 
