@@ -63,48 +63,17 @@ Split Grid Image: <img src="./ref_imgs/split_grid_iamge.png" alt="Description" w
 
 
 6. **Understand The Model Architecture And Implement in PyTorch**
-    <!-- TODO: add link to yolo v1 orig project as better archietcure -->
-    <!-- [⭐ Better note on Archietcure](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_taco/README.md#yolo-v1-architecture) -->
 
+    ⭐ Check out Notes on [Archietcure](https://github.com/t20e/AI_public_projects/tree/main/object_detection/yolo_v1_orig#yolo-v1-architecture).
 
-    <img    src="./ref_imgs/YoloV1Architecture.png" alt="Description" width="700">
-
-    1. Layer 1: Input will be (448 x 448 x 3), RBG images 448 pixels width by 448 height by 3 color channels.
-        1. Passed into a Convolution Layer with 7x7 kernel with 64 output filters with a stride of 2. The stride of 2 will halve the image size.
-        2. Then a maxpool 2x2 with a stride of 2.
-        3. <span class="highLight-text">Note:</span> the strides are halving the layers. We input a 448x448 image then the first CONV layer halves it to 224x224 then the maxpool halves it again into 112x112 which is the input size for the next layer. And the padding will be the same for all layers. Also the color channel = 3 x 63 output filters of the first CONV will result into 192.
-    2. Layer 2
-        1. Passed into a CONV layer with 3x3 kernal with 192 output filters
-        2. Passed into a maxpool layer of 2x2 with a stride of 2.
-    3. Layer 3
-        1. Passed into sequential CONV layers [ 1 x 1 x 128] => [ 3 x 3 x 256] => [ 1 x 1 x 256] => [ 3 x 3 x 512]
-        2. Passed to a maxpool 2x2 with a stride of 2.
-    4. Layer 4
-        1. Repeat this CONV layers 4 times => [1 x 1 x 256] => [ 3 x 3 x 512 ]
-        2. then CONV layers [ 1 x 1 x 512 ] => [ 3 x 3 x 1024]
-        3. Add a maxpool with 2x2 and a stride of 2
-    5. Layer 5
-        1. Repeat this CONV layers 2 times => [1 x 1 x 512] => [ 3 x 3 x 1024 ]
-        2. then CONV layers [ 3 x 3 x 1024] => [ 3 x 3 x 1024, stride = 2]
-    6. Layer 6
-        1. Conv layers [3 x 3 x 1024] => [ 3 x 3 x 1024]
-    7. Layer 7
-        1. input is 7 x 7 x 1024 and the below connected layer reshapes it into a 4096.
-        2. Add a Connected layer with a feature vector of 4096, NOTE: a connected layer is also called a fully connected layer or dense layer. 
-    8. Layer 8
-        1. Add a Connected layer to reshape into a 7 x 7 x 30
-    9. <span class="highLight-text">NOTE:</span> 
-        1. The 7 x 7 x 30 for layer 8 means => we are going to have a 7 x 7 grid so ( S x S) of the image
-        2. Then for each <span class="cell-text">cell</span> theres going to be a 30 vector output, like mentioned at [line item 5.4](#item-54).]
-    10. Using this info we create the model in model.py 
-
-
+    ⭐ [Architecture code implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/model/yolov1.py).
 
 
 7. **Loss Function**
 
-    Check out [./loss_fn.ipynb](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO.res/loss_fn.ipynb)
+   ⭐ Check out on [notes loss function](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO.res/loss_fn.ipynb).
 
+   ⭐ [Loss function Code implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/loss.py).
 
 
 
