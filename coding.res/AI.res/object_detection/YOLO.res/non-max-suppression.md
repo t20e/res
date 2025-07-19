@@ -1,6 +1,7 @@
 # Non-max Suppression
 
-⭐️ If you don't know what **IoU** is check this [link](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO.res/intersecion_over_union.ipynb).
+⭐️ If you don't know what **IoU** is check this [link](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO.res/intersection_over_union.ipynb).
+
 
 * **NMS** is used to remove redundant bounding boxes after predictions are made.
 * **IOU_threshold** is a float value [0-1]. We use it when comparing bounding boxes, if the IoU result is greater than IOU_threshold than the box with the lower confidence score is removed. Note: the higher than IoU the more the boxes overlap.
