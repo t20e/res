@@ -4,12 +4,12 @@
 
 - **mAP** = mean average precision.
 
-- It is typically computed at training time on the validation dataset, i.e., for every epoch that we train the model on the train dataset, we test it on the validation dataset.
+- It is typically computed at training time on the validation dataset, i.e., for every epoch that we train the model on the train dataset, we test it on the validation dataset by computing mAP.
 
 - **Prerequisites**:
     - Understand IoU (Intersection Over Union): A metric that quantifies the overlap between two bounding boxes.
 
-<!-- TODO: Add link to Yolov1_orig only implemented. -->
+[Code Implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/utils/mAP.py)
 
 ## Key Concepts For TP/FP Determination:
 
