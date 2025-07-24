@@ -71,9 +71,9 @@ Split Grid Image: <img src="./ref_imgs/split_grid_iamge.png" alt="Description" w
 
 7. **Loss Function**
 
-   ⭐ Check out on [notes loss function](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO.res/loss_fn.ipynb).
+   ⭐ Check out on [notes loss function](https://github.com/t20e/res/blob/main/coding.res/AI.res/object_detection/YOLO_v1.res/loss_fn.ipynb).
 
-   ⭐ [Loss function Code implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/loss.py).
+   ⭐ [Loss function Code implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/model/loss.py).
 
 
 
