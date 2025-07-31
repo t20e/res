@@ -1,23 +1,29 @@
 # Mean Average Precision
 
+- **Prerequisites**:
+    - [Understand IoU (Intersection Over Union): A metric that quantifies the overlap between two bounding boxes.](./intersection_over_union.md)
+
+    - [NMS (Non-Max-Suppression)](./non-max-suppression.md)
+    
 - **Purpose**: Mean Average Precision (mAP) is a robust metric used to evaluate the performance of object detection models. It accounts for both the accuracy of object classification and the precision of their localization.
 
 - **mAP** = mean average precision.
 
-- It is typically computed at training time on the validation dataset, i.e., for every epoch that we train the model on the train dataset, we test it on the validation dataset by computing mAP.
+- It is typically computed at training time on the **validation** dataset.
+    - For every $n^{th}$ epoch that we train the model on the train dataset, we test it on the validation dataset by computing mAP.
 
-- **Prerequisites**:
-    - Understand IoU (Intersection Over Union): A metric that quantifies the overlap between two bounding boxes.
+- **NMS** is applied before mAP, as noted from the paper section 2.3. Inference: "While note critical to performance as it is for R-CNN or DPM, non-maximal suppression adds $2-3\% $ in mAP".
 
-[Code Implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/utils/mAP.py)
 
-## Key Concepts For TP/FP Determination:
+[mAP Code Implementation](https://github.com/t20e/AI_public_projects/blob/main/object_detection/yolo_v1_orig/utils/mAP.py)
+
+## Key Concepts:
 
 - FP = False positives, TP = True positives
-- IoU Threshold: A predicted bounding box is considered a match if its Iou with a ground truth bounding box is above a predefined threshold (commonly 0.5).
-- Correct Class: In addition to the IoU threshold, the predicted bounding box must also have the correct class label to be considered a True Positive.
+- IoU Threshold: A predicted bounding box is considered a match/good if its Iou with a ground truth bounding box is above a predefined threshold (commonly 0.5).
+- Correct Class: In addition to the IoU threshold, the predicted bounding box must also have the same class as the target grounding box to be considered a True Positive.
 
-- One-to-One Matching: If multiple predicted bounding boxes overlap with the same ground truth bounding box (all above the IoU threshold and correct class), only the one with the highest confidence score is counted as a True Positive. The others are considered False Positives.
+- One-to-One Matching: If multiple predicted bounding boxes overlap with the same ground truth bounding box and pass -> (all above the IoU threshold and correct class), only the one with the highest confidence score is counted as a True Positive. The others are considered False Positives.
 
 
 ### Understanding <span class="precision-text">Precision</span>  and <span class="recall-text">Recall</span>.
@@ -27,7 +33,7 @@
 
 1. <span class="true-positive-color">True positives</span>: are predicted bounding boxes that correctly match a Target bounding box (i.e., IoU > threshold and correct class).
 2. <span class="false-positive-color">False positives</span>: means the model predicted a bounding box, but there was no target bounding box, or it was a duplicate detection for an already matched ground truth (i.e., a wrong prediction).
-3. A <span class="false-negatives-color">False negatives</span> is a ground truth object that the model failed to detect. (i.e., a missed detection).
+3. <span class="false-negatives-color">False negatives</span> is a ground truth object that the model failed to detect. (i.e., a missed detection).
 
 3. <span class="precision-text">Precision</span>: Take the True Positives and divide by the (True Positives + False **Positives**).
     - Interpretation: Of all bounding box predictions made by the model, what fraction was actually correct?
