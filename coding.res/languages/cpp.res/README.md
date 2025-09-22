@@ -1,5 +1,11 @@
 # C++ Resources
 
+- [Importing C++ Functions](importingFunctions.md)
+
+- [Build automation tools (CMake vs Make)](CMake_vs_Make.md)
+
+- [C++ Testing](testing)
+
 
 ### How To Compile Code:
 

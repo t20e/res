@@ -9,14 +9,13 @@ class Human{
     /*
         ------- Object = A collection of attributes and methods, They have characteristics and could perform actions 
 
-        Can be used to minic real world items
+        Can be used to mimic real world items
 
         Created from a class which acts as a "Blue-print"
 
-        *** Attributes are characterists of an object like name, occupatio, and age below
+        *** Attributes are characteristics of an object like name, occupation, and age below
 
         *** Methods are the functions that the object can perform like eat(), Drink(), sleep()
-
 
     */
 
@@ -149,7 +148,7 @@ class Animal{
     }
 };
 
-// dog class is inherinting from the animal class
+// dog class is inheriting from the animal class
 class Dog: public Animal{
     public:
 

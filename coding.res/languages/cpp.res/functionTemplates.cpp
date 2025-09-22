@@ -14,7 +14,15 @@ auto max(T x, U y) {
     return (x > y) ? x : y;
 }
 
- 
+
+
+/* --- Overload Functions --- are functions with the same name but different parameters.
+    A functions name plus its parameters is called its SIGNATURE.
+*/
+void bakePizza();
+void bakePizza(std::string topping1);
+void bakePizza(std::string topping1, std::string topping2);
+
 
 int main(){
     /*
@@ -32,4 +40,14 @@ int main(){
     cout << "\nC++ version: " << __cplusplus << "\n";
 
     return 0;
+}
+
+void bakePizza(){
+    cout << "Here is your pizza" << '\n';
+}
+void bakePizza(std::string topping1){
+    cout << "Here is your pizza toppings"<< topping1 << '\n';
+}
+void bakePizza(std::string topping1, std::string topping2){
+    cout << "\n\n\nHere are your two pizza toppings " << topping1 << " and " << topping2 << '\n';
 }

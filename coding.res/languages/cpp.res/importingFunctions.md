@@ -1,5 +1,8 @@
 # Importing External Functions in C++
 
+
+💡 **Automating Below Process With [Make or CMAKE](CMake_vs_Make.md):**
+
 **Import:**
 
 - The `Header file (.h)`:
@@ -15,7 +18,7 @@
     // Declare the function signature.
     int calculate_area(int length, int width);
 
-    #endif // MATH_UTILS_H
+    #endif ****
     ```
 
 - The `implementation file (.cpp)`:
@@ -56,48 +59,3 @@
 ```shell
 clang++ main.cpp math_utils.cpp -o area_calculator
 ```
-
----
-
-💡 **Automating This Process With A Makefile:**
-
-- A **Makefile** is a script that automates the build process, so if we have **many** external functions and dependencies, instead of linking each when compiling we can automate the process with `make`:
-  - Note: we still need header files files.
-
-`Makefile`
-
-```c
-CXX = clang++
-CXXFLAGS = -std=c++17 -Wall
-TARGET = area_calculator # compiled program name
-OBJS = main.o math_utils.o
-
-# $@: The name of the target.
-# $^: The names of all the prerequisites (e.g., main.o math_utils.o)
-# $<: The name of the first prerequisite (e.g., main.cpp)
-
-
-all: $(TARGET)
-
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) -c $<
-
-math_utils.o: math_utils.cpp
-	$(CXX) $(CXXFLAGS) -c $<
-
-clean:
-	rm -f *.o $(TARGET)
-```
-
-**Build:**
-
-```shell
-cd to_project_folder
-# build
-make
-```
-
-- Note: run `make clean` if you want to delete the compiled program
