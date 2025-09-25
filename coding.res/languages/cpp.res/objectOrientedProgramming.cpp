@@ -4,6 +4,19 @@
 using std::cout;
 
 
+
+
+/* ---- IMPORTANT------------------------------------------------------------------
+
+ SEE -> ./header_files.md
+
+ - For better practices!
+
+ ------ IMPORTANT------------------------------------------------------------------ 
+ */
+
+
+
 class Human{
 
     /*
@@ -131,7 +144,7 @@ class Stove{
 
 
 /*
-    Inheritance = A class can recieve attributes and methods from another class 
+    Inheritance = A class can receive attributes and methods from another class 
 
         Children classes inherit from a Parent class
         helps to reuse similar code found within multiple classes

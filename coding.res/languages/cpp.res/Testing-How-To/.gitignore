@@ -1,0 +1,5 @@
+googletest
+*.o
+*.d
+
+tests_exe

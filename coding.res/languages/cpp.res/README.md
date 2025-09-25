@@ -1,10 +1,14 @@
 # C++ Resources
 
+- [C++ build process](cpp_build_process.md)
+
+- 💡 [Header files (.h)](header_files.md)
+
 - [Importing C++ Functions](importingFunctions.md)
 
 - [Build automation tools (CMake vs Make)](CMake_vs_Make.md)
 
-- [C++ Testing](testing)
+- [C++ Testing](Testing-How-To/README.md)
 
 
 ### How To Compile Code:
