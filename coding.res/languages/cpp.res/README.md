@@ -1,5 +1,7 @@
 # C++ Resources
 
+**Useful:**
+
 - [C++ build process](cpp_build_process.md)
 
 - 💡 [Header files (.h)](header_files.md)
@@ -10,6 +12,7 @@
 
 - [C++ Testing](Testing-How-To/README.md)
 
+- [Scope Operators (::) vs (.)](scope_operators.md)
 
 ### How To Compile Code:
 

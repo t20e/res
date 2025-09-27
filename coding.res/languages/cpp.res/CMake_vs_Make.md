@@ -75,11 +75,18 @@ make
 ```
 
 To clean up generated build files run:
+
 ```shell
-Make clean
+# Note you don't have to run `make clean` every time before `make`, see the below note ↓
+make clean
 ```
+
+`Note:` you should run `make clean` every time you:
+
+1. Edit the Makefile.
+2. Want a clean build, weird error issues occurs.
+3. Downloaded or updated external libraries that your project links against.
 
 ## CMake
 <!-- TODO -->
 - CMAKE is a **build system generator**. It creates OS-specific build files like (**Makefiles**, Visual Studio projects, Xcode projects, etc...) from a single set of configuration files known as CMakeLists.txt
-

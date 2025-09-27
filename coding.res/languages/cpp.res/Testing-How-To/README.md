@@ -1,5 +1,7 @@
 # C++ Testing
 
+⭐️ [A more sophisticated Google Test Makefile](https://github.com/t20e/encryptor/blob/main/Makefile)
+
 **Prerequisite:**
 
 - [Google test (GTest)](https://github.com/google/googletest/tree/main#)
@@ -9,7 +11,8 @@
     git clone https://github.com/google/googletest.git
     ```
 
-  - GTest is extremely popular and widely used testing framework for C++ projects.
+- Or Download globally using `Homebrew`
+- GTest is extremely popular and widely used testing framework for C++ projects.
 
 *Folder structure:*
 
@@ -31,7 +34,7 @@
 - [math_functions.cpp](src/math_functions.cpp)
 - [math_functions.h](include/math_functions.h)
 - [test_math.cpp](tests/test_math.cpp)
-- [makefile](makefile)
+- [Makefile](Makefile)
 
 ### Compiling and Running Tests:
 

@@ -32,7 +32,7 @@ OBJS = $(SRCS:.cpp=.o) $(GTEST_SRCS:.cc=.o) # the .cc are for the gtest-all.cc a
 
 # --- RULES ---
 
-# PHONY targets are not actual files. Tells `Make` that `all` and `clean` are just commands to be executed. 
+# PHONY targets are not actual files. This rule tells `Make` that `all`, `clean`, and 'test' are just commands to be executed. 
 .PHONY: all clean test
 
 # Default rule runs when `make` command is typed in the terminal, it depends on the final executable..
