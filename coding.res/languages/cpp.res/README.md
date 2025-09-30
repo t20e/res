@@ -14,6 +14,8 @@
 
 - [Scope Operators (::) vs (.)](scope_operators.md)
 
+- [Pointers, Memory Address & Dynamic Memory](pointers_and_memory_address.md)
+
 ### How To Compile Code:
 
 ```shell

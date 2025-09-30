@@ -1,7 +1,9 @@
-# Importing External Functions in C++
+# Importing External Functions in C++ (.h) files
 
 
 💡 **Automating Below Process With [Make or CMAKE](CMake_vs_Make.md):**
+
+💡 **[C++ Build process](coding.res/languages/cpp.res/cpp_build_process.md):**
 
 **Import:**
 
@@ -59,3 +61,11 @@
 ```shell
 clang++ main.cpp math_utils.cpp -o area_calculator
 ```
+
+### Why Use (.h) Files
+
+Header files enable separate compilation, which allows large projects to be built efficiently without recompiling everything every time you make small changes, this is useful when using `CMAKE` or `Make` automation.
+
+- During the `compilation process`, the preprocessor, which runs before the compiler looks at only one source (.cpp) file at a time, also called a compilation unit. It then adds all the code declarations of all the `#include  <filename>.h` files included in that one compilation unit, so the (.cpp) file knows that somewhere there is an implementation of that code. Then, the `compiler` comes along and converts the (.cpp) into a object (.o) file. Then, finally comes the `Linker` which links the necessary (.o) files that require code implementation from other (.o) files.
+
+
