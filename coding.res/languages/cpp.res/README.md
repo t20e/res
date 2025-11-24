@@ -12,7 +12,7 @@
 
 - [C++ Testing](Testing-How-To/README.md)
 
-- [Scope Operators (::) vs (.)](scope_operators.md)
+- [Scope Operators (::) vs (.) vs (->)](scope_operators.md)
 
 - [Pointers, Memory Address & Dynamic Memory](pointers_and_memory_address.md)
 

@@ -20,7 +20,7 @@
     // Declare the function signature.
     int calculate_area(int length, int width);
 
-    #endif ****
+    #endif 
     ```
 
 - The `implementation file (.cpp)`:

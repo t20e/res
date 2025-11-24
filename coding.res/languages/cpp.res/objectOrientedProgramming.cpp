@@ -125,9 +125,9 @@ class Stove{
         int temperature = 0;
     
     public:
-    // int temperature = 0; // this is accessable from outside of the class since its in the public: domain, meaning people can change it
+    // int temperature = 0; // this is accessible from outside of the class since its in the public: domain, meaning people can change it
 
-    int getTemperature(){
+    int getTemperature() const{ // const here makes sure the function getTemperature() will not change any of the class's member variables!
         return temperature;
     }
     void setTemperature(int temperature){

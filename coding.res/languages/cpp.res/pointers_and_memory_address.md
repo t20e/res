@@ -5,24 +5,24 @@
 Pointers are variables that store a memory address of another variable.
 
 - `&` Address-of operator
-- `*` Dereference operator
+- `*` De-reference operator
 
-### Creating A Point
+### Create A Pointer
 
-To create a variable that points to the variable above, we use the following convention:
+To create a variable that points to another variable, we use the following convention:
 
-1. Use the letter `p` to denote it as a pointer.
-2. Use the `*`
+1. Use the `*` and `p` to denote it as a pointer.
 3. Use the `&` to assign it the address for where its pointing to.
 
-```c
+```c++
 std::string name = "Tony";
 
-std::string *pName = &name;
+std::string *pName = &name; // Create a pointer
 
-std::cout << pName; // Will print the address of variable `name`.
+std::cout << "Prints the memory address of the pointer: " << pName << std::endl; // Example: 0x16d982a70, Which is the memory address that stores the variable `name`
 
-std::cout << *pName; // Will print the value of the variable `name`
+std::cout << "Prints the value of at the pointer location: " << *pName << std::endl; // Tony
+return 0;
 ```
 
 ### Arrays
@@ -38,16 +38,20 @@ std::cout << *freePizzas; // Will print the value of the first element: "pizza1"
 
 A null pointer is a pointer that doesn't point to any valid object. The `nullptr` keyword represents this.
 
-```c
+```c++
 int *pointer = nullptr; // Assigned to a null pointer
+int i;
+
+// --NOTE--: Dereferencing a null pointer like below line, will lead to undefined behavior (often a crash)!
+i = *pointer; // Causes an error
+// So we check to see if the pointer is not a null pointer.
+if (pointer != nullptr) {
+    i = *pointer;
+}
+
+
 int x = 123;
 pointer = &x;
-// <-NOTE->: Dereferencing a null pointer like below line, will lead to undefined behavior (often a crash)!
-*pointer; 
-
-// So we check to see if the pointer is a null pointer for safe coding, instead of `*pointer`
-if (pointer == nullptr){}
-
 ```
 
 ## Memory Address
@@ -60,16 +64,15 @@ A Memory Address is a location in memory where data is stored, a memory address 
 
 **Getting Variable Addresses:**
 
-```c
+```c++
 bool student = true;
-std::cout << "--- Memory Addresses ---\n";
-std::cout << "Address of the student variable: " << &student;
+std::cout << "Address of the student variable: " << &student; // 0x16fa26a8f
 // &student returns the address of variable student
 ```
 
 **For Functions:**
 
-```c
+```c++
 void swapByReference(int &x, int &y)
 { // the &x, &y means that we are passing the original variables x, y instead of copies
     int temp = x;
@@ -98,14 +101,14 @@ Dynamic memory is memory that is allocated after the program is already compiled
 
 - Useful when we don't know how much memory we will need. Makes our programs more flexible, especially when accepting user inputs.
 
-```c
+```c++
 int *pNum = nullptr;
 
 // The `new` operator will return an address and we store it in pNum, pNum is a pointer.
 pNum = new int;
 *pNum = 21;
-std::cout << " address: " << pNum <<  "\n";
-std::cout << "values: " << *pNum << "\n";
+std::cout << "Address: " << pNum <<  "\n"; // 0x103651af0
+std::cout << "values: " << *pNum << "\n"; //21
 
 // NOTE:
 //      It's good practice to free up the memory when we no longer need that memory, so we delete pNum, if you don't it may cause a memory leak.
@@ -114,7 +117,7 @@ delete pNum;
 
 - NOTE: In modern C++, the manual use of `new` and `delete` are rare, the newer method is to use smart pointers, which automatically free the memory when they are no longer needed.
 
-    ```c
+    ```c++
     std::unique_ptr<int> pNum = std::make_unique<int>(21);
     // No `delete pNum` is needed!
     ```
@@ -123,7 +126,7 @@ delete pNum;
 
 - We only use dynamic memory wth arrays if we wont know the size of the array when it's later created.
 
-```c
+```c++
 char *pGrades = nullptr; // Initialize pointer to null
 int size; // To ask the user how many grades to enter in pGrades.
 
@@ -142,5 +145,5 @@ for (int i = 0; i < size; i++)
 {
     std::cout << pGrades[i] << " ";
 }
-delete[] pGrades; // Free up the memory. Same note as above ->  `NOTE: In modern C++...`
+delete[] pGrades; // Free up the memory. Same note as above:  `NOTE: In modern C++...`
 ```

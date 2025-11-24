@@ -2,6 +2,8 @@
 
 ⭐️ [A more sophisticated Google Test Makefile](https://github.com/t20e/encryptor/blob/main/Makefile)
 
+⭐️ [More sophisticated Google Test cases](https://github.com/t20e/encryptor/tree/main/tests)
+
 **Prerequisite:**
 
 - [Google test (GTest)](https://github.com/google/googletest/tree/main#)
@@ -31,12 +33,13 @@
 ## Google Test
 
 **See:**
+
 - [math_functions.cpp](src/math_functions.cpp)
 - [math_functions.h](include/math_functions.h)
 - [test_math.cpp](tests/test_math.cpp)
 - [Makefile](Makefile)
 
-### Compiling and Running Tests:
+### Compiling and Running Tests
 
 Using the `Makefile` to compile and run the tests.
 
@@ -45,8 +48,7 @@ Using the `Makefile` to compile and run the tests.
 make test # the test rule from the Makefile
 ```
 
-
-### Assertions:
+### Assertions
 
 - When using GoogleTest, you start by writing assertions, which are statements that check whether a condition is true. An assertion’s result can be success, nonfatal failure, or fatal failure.
 
@@ -68,8 +70,7 @@ make test # the test rule from the Makefile
     | `EXPECT_THROW(op,ex);`| The operation `op` throws exception `ex`   |
     | ..And a lot more... | ...   |
 
-
-### Typical Test Function:
+### Typical Test Function
 
 ```C++
 TEST(TestSuiteName, TestName) {
@@ -86,12 +87,38 @@ TEST(TestSuiteName, TestName) {
 - [WorkManager.cpp](src/WorkManager.cpp)
 - [DatabaseHuman.cpp](src/DatabaseHuman.cpp)
 
-
 - [MockHuman.h](include/MockHuman.h)
 - [DatabaseHuman.h](include/DatabaseHuman.h)
 - [IHuman.h](include/IHuman.h)
 - [WorkManager.h](include/WorkManager.h)
 
-For cases where your program has dependencies such as databases, makes network calls, API calls, or interacts with other complex classes. mocking allows us to replace these real dependencies with "fake" or mock objects.
+For cases where your program has dependencies such as databases, makes network calls, API calls, or interacts with other complex classes. Mocking allows us to replace these real dependencies with "fake" or mock objects.
 
+### Value-Parameterized Testing
 
+Allows us to run the same test logic with many different input values. Useful when testing a function against a range of data without writing repetitive code.
+
+It requires:
+
+1. A fixture class that inherits from `::testing::TestWithParam<YourType>`
+2. A TEST_P case that uses `GetParam()` to access the current parameter.
+3. An `INSTANTIATE_TEST_SUITE_P` macro to define the set of parameters to test with.
+
+```c
+// 1. The fixture
+class IsEvenTest: public ::testing::TestWithParam<int>{};
+
+// 2. The test cast
+TEST_P(IsEvenTest, HandleMultipleValues){
+    int number = GetParam(); // Get the current parameter
+    bool result = is_even(number);
+    EXPECT_TRUE(result);
+}
+
+// 3. The Instantiation
+INSTANTIATE_TEST_SUITE_P(
+    EvenNumbers,
+    IsEvenTest,
+    ::testing::Values(0, 2, 4, -8, 100)
+); 
+```
